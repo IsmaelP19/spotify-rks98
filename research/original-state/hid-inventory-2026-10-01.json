@@ -1,0 +1,353 @@
+{
+  "hid_services" : [
+    {
+      "ancestors" : [
+        {
+          "properties" : {
+            "bAlternateSetting" : 0,
+            "bcdDevice" : 28673,
+            "bConfigurationValue" : 1,
+            "bInterfaceClass" : 3,
+            "bInterfaceNumber" : 1,
+            "bInterfaceProtocol" : 0,
+            "bInterfaceSubClass" : 0,
+            "bNumEndpoints" : 1,
+            "idProduct" : 555,
+            "idVendor" : 9610,
+            "USB Product Name" : "Gaming Keyboard",
+            "USB Vendor Name" : "SINO WEALTH"
+          },
+          "registry_name" : "IOUSBHostInterface"
+        },
+        {
+          "properties" : {
+            "bcdDevice" : 28673,
+            "bcdUSB" : 272,
+            "bDeviceClass" : 0,
+            "bDeviceProtocol" : 0,
+            "bDeviceSubClass" : 0,
+            "bNumConfigurations" : 1,
+            "Device Speed" : 1,
+            "idProduct" : 555,
+            "idVendor" : 9610,
+            "USB Product Name" : "Gaming Keyboard",
+            "USB Vendor Name" : "SINO WEALTH"
+          },
+          "registry_name" : "Gaming Keyboard"
+        }
+      ],
+      "identity_status" : "Vendor match only; physical model and TFT interface not confirmed",
+      "properties" : {
+        "bInterfaceClass" : 3,
+        "bInterfaceSubClass" : 0,
+        "BootProtocol" : 0,
+        "CountryCode" : 0,
+        "DeviceUsagePairs" : [
+          {
+            "DeviceUsage" : 128,
+            "DeviceUsagePage" : 1
+          },
+          {
+            "DeviceUsage" : 1,
+            "DeviceUsagePage" : 12
+          },
+          {
+            "DeviceUsage" : 1,
+            "DeviceUsagePage" : 65282
+          },
+          {
+            "DeviceUsage" : 6,
+            "DeviceUsagePage" : 1
+          },
+          {
+            "DeviceUsage" : 1,
+            "DeviceUsagePage" : 65280
+          },
+          {
+            "DeviceUsage" : 2,
+            "DeviceUsagePage" : 65282
+          },
+          {
+            "DeviceUsage" : 2,
+            "DeviceUsagePage" : 1
+          },
+          {
+            "DeviceUsage" : 1,
+            "DeviceUsagePage" : 1
+          }
+        ],
+        "Manufacturer" : "SINO WEALTH",
+        "MaxFeatureReportSize" : 1032,
+        "MaxInputReportSize" : 16,
+        "MaxOutputReportSize" : 1,
+        "PrimaryUsage" : 128,
+        "PrimaryUsagePage" : 1,
+        "Product" : "Gaming Keyboard",
+        "ProductID" : 555,
+        "ReportDescriptor" : {
+          "byte_count" : 304,
+          "hex" : "0601000980a10185011981298315002501950375018102950175058101c0050c0901a101850219002aff02150026ff7f950175108100c00602ff0901a1018503150026ff00092f750895038102c005010906a1018504050719e029e715002501750195088102050719002967150025017501956881020985098709880989098a098b09910992750195088102c00600ff0901a1018505150026ff00190029ff75089505b102c00600ff0901a1018506150026ff00190129027508960704b102c00602ff0902a1018509150026ff007508950709028100150026ff00190129027508960702b102c005010902a10185070901a1000509150025011901290575019505810295038101050116008026ff7f093009317510950281061581257f0938750895018106050c0a380295018106c0c0"
+        },
+        "ReportInterval" : 1000,
+        "Transport" : "USB",
+        "VendorID" : 9610,
+        "VersionNumber" : 28673
+      },
+      "registry_name" : "AppleUserUSBHostHIDDevice",
+      "report_descriptor_summary" : {
+        "collections" : [
+          {
+            "depth" : 0,
+            "offset" : 5,
+            "type" : 1,
+            "usage" : 128,
+            "usage_page" : 1
+          },
+          {
+            "depth" : 0,
+            "offset" : 34,
+            "type" : 1,
+            "usage" : 1,
+            "usage_page" : 12
+          },
+          {
+            "depth" : 0,
+            "offset" : 60,
+            "type" : 1,
+            "usage" : 1,
+            "usage_page" : 65282
+          },
+          {
+            "depth" : 0,
+            "offset" : 82,
+            "type" : 1,
+            "usage" : 6,
+            "usage_page" : 1
+          },
+          {
+            "depth" : 0,
+            "offset" : 146,
+            "type" : 1,
+            "usage" : 1,
+            "usage_page" : 65280
+          },
+          {
+            "depth" : 0,
+            "offset" : 171,
+            "type" : 1,
+            "usage" : 1,
+            "usage_page" : 65280
+          },
+          {
+            "depth" : 0,
+            "offset" : 197,
+            "type" : 1,
+            "usage" : 2,
+            "usage_page" : 65282
+          },
+          {
+            "depth" : 0,
+            "offset" : 235,
+            "type" : 1,
+            "usage" : 2,
+            "usage_page" : 1
+          },
+          {
+            "depth" : 1,
+            "offset" : 241,
+            "type" : 0,
+            "usage" : 1,
+            "usage_page" : 1
+          }
+        ],
+        "complete" : true,
+        "reports" : [
+          {
+            "payload_bits" : 40,
+            "payload_bytes" : 5,
+            "report_id" : 5,
+            "type" : "feature",
+            "wire_bytes_including_report_id" : 6
+          },
+          {
+            "payload_bits" : 8248,
+            "payload_bytes" : 1031,
+            "report_id" : 6,
+            "type" : "feature",
+            "wire_bytes_including_report_id" : 1032
+          },
+          {
+            "payload_bits" : 4152,
+            "payload_bytes" : 519,
+            "report_id" : 9,
+            "type" : "feature",
+            "wire_bytes_including_report_id" : 520
+          },
+          {
+            "payload_bits" : 8,
+            "payload_bytes" : 1,
+            "report_id" : 1,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 2
+          },
+          {
+            "payload_bits" : 16,
+            "payload_bytes" : 2,
+            "report_id" : 2,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 3
+          },
+          {
+            "payload_bits" : 24,
+            "payload_bytes" : 3,
+            "report_id" : 3,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 4
+          },
+          {
+            "payload_bits" : 120,
+            "payload_bytes" : 15,
+            "report_id" : 4,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 16
+          },
+          {
+            "payload_bits" : 56,
+            "payload_bytes" : 7,
+            "report_id" : 7,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 8
+          },
+          {
+            "payload_bits" : 56,
+            "payload_bytes" : 7,
+            "report_id" : 9,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 8
+          }
+        ],
+        "warnings" : [
+
+        ]
+      },
+      "snapshot_service_index" : 1
+    },
+    {
+      "ancestors" : [
+        {
+          "properties" : {
+            "bAlternateSetting" : 0,
+            "bcdDevice" : 28673,
+            "bConfigurationValue" : 1,
+            "bInterfaceClass" : 3,
+            "bInterfaceNumber" : 0,
+            "bInterfaceProtocol" : 1,
+            "bInterfaceSubClass" : 1,
+            "bNumEndpoints" : 1,
+            "idProduct" : 555,
+            "idVendor" : 9610,
+            "USB Product Name" : "Gaming Keyboard",
+            "USB Vendor Name" : "SINO WEALTH"
+          },
+          "registry_name" : "IOUSBHostInterface"
+        },
+        {
+          "properties" : {
+            "bcdDevice" : 28673,
+            "bcdUSB" : 272,
+            "bDeviceClass" : 0,
+            "bDeviceProtocol" : 0,
+            "bDeviceSubClass" : 0,
+            "bNumConfigurations" : 1,
+            "Device Speed" : 1,
+            "idProduct" : 555,
+            "idVendor" : 9610,
+            "USB Product Name" : "Gaming Keyboard",
+            "USB Vendor Name" : "SINO WEALTH"
+          },
+          "registry_name" : "Gaming Keyboard"
+        }
+      ],
+      "identity_status" : "Vendor match only; physical model and TFT interface not confirmed",
+      "properties" : {
+        "bInterfaceClass" : 3,
+        "bInterfaceProtocol" : 1,
+        "bInterfaceSubClass" : 1,
+        "BootProtocol" : 1,
+        "CountryCode" : 0,
+        "DeviceUsagePairs" : [
+          {
+            "DeviceUsage" : 6,
+            "DeviceUsagePage" : 1
+          }
+        ],
+        "Manufacturer" : "SINO WEALTH",
+        "MaxFeatureReportSize" : 0,
+        "MaxInputReportSize" : 8,
+        "MaxOutputReportSize" : 1,
+        "PrimaryUsage" : 6,
+        "PrimaryUsagePage" : 1,
+        "Product" : "Gaming Keyboard",
+        "ProductID" : 555,
+        "ReportDescriptor" : {
+          "byte_count" : 67,
+          "hex" : "05010906a101050719e029e71500250195087501810295017508810395067508150026ff00050719002aff0081002501950575010508190129059102950175039103c0"
+        },
+        "ReportInterval" : 1000,
+        "Transport" : "USB",
+        "VendorID" : 9610,
+        "VersionNumber" : 28673
+      },
+      "registry_name" : "AppleUserUSBHostHIDDevice",
+      "report_descriptor_summary" : {
+        "collections" : [
+          {
+            "depth" : 0,
+            "offset" : 4,
+            "type" : 1,
+            "usage" : 6,
+            "usage_page" : 1
+          }
+        ],
+        "complete" : true,
+        "reports" : [
+          {
+            "payload_bits" : 64,
+            "payload_bytes" : 8,
+            "report_id" : 0,
+            "type" : "input",
+            "wire_bytes_including_report_id" : 8
+          },
+          {
+            "payload_bits" : 8,
+            "payload_bytes" : 1,
+            "report_id" : 0,
+            "type" : "output",
+            "wire_bytes_including_report_id" : 1
+          }
+        ],
+        "warnings" : [
+
+        ]
+      },
+      "snapshot_service_index" : 2
+    }
+  ],
+  "host_os" : "Version 27.0.1 (Build 26A434)",
+  "identifiers_included" : false,
+  "limitations" : [
+    "Registry snapshot, not a complete USB descriptor capture",
+    "No device opened; no input, output or feature reports requested or sent",
+    "Report IDs and sizes describe declared formats, not TFT command semantics",
+    "Endpoint descriptors may not be published in IORegistry",
+    "Missing entries can mean disconnected device, different VID or unavailable registry metadata"
+  ],
+  "matching_hid_service_count" : 2,
+  "mode" : "read-only-cached-registry",
+  "schema_version" : 1,
+  "timestamp_utc" : "2026-09-30T23:34:50Z",
+  "vendor_filter" : "0x258A",
+  "warnings" : [
+
+  ]
+}

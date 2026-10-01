@@ -1,0 +1,93 @@
+Lectura pasiva de IORegistry, 2026-10-01 (macOS 27.0.1)
+=====================================================
+
+Esta NO es una captura completa de descriptores USB en el bus. Son propiedades
+que macOS ya publicó en IORegistry. No se abrió el HID ni se pidió o envió
+ningún report. Snapshot completo, sin seriales ni ubicaciones:
+  hid-inventory-2026-10-01.json
+
+Candidato físico observado:
+  VID: 0x258A
+  PID: 0x022B
+  USB Product Name: Gaming Keyboard
+  USB Vendor Name: SINO WEALTH
+  transporte de ambos servicios HID: USB
+  bcdUSB: 0x0110
+  bcdDevice: 0x7001
+  bDeviceClass/SubClass/Protocol: 0/0/0
+  bNumConfigurations: 1
+  configuración actual publicada: 1
+
+El PID coincide con la entrada RK-S98 ES del Web Driver publicado. El registro
+no escribe el nombre comercial RK-S98. Una comparación transitoria de IDs
+internos de IORegistry (sin guardarlos ni imprimirlos) confirmó que los dos
+servicios HID descienden del mismo dispositivo USB.
+
+Confirmación posterior, 2026-10-01 01:55 hora local (2026-09-30T23:55:05Z):
+otra lectura pasiva, con la pantalla del teclado encendida en el home de la
+foto original-tft/home-2026-10-01.jpg, volvió a encontrar un único dispositivo
+0x258A y el mismo PID 0x022B, producto Gaming Keyboard, fabricante SINO WEALTH,
+transporte USB. El usuario identificó esa unidad como su RK-S98.
+
+hid-inventory-2026-10-01-confirmed.json es una tercera lectura pasiva, a las
+02:00 hora local (2026-10-01T00:00:13Z), hecha con el parser que asocia cada
+report a su colección de nivel superior. Mismos VID, PID e interfaces. La de
+las 01:34 permanece como primera observación y no incluye ese enlace.
+
+Interfaz USB 0:
+  bInterfaceClass/SubClass/Protocol: 3/1/1 (HID boot keyboard)
+  bAlternateSetting: 0
+  bNumEndpoints publicado: 1; atributos/direcciones no publicados
+  servicio IOHIDDevice: PrimaryUsagePage 0x0001, PrimaryUsage 0x0006
+  ReportDescriptor: 67 bytes, SHA-256
+    a793c0d945b1047f33e64d404208e5e69fbe5494dc438fc22552d91af3fa396c
+  Input report sin ID: 8 bytes; Output report sin ID: 1 byte
+  MaxFeatureReportSize publicado: 0
+
+Interfaz USB 1:
+  bInterfaceClass/SubClass/Protocol: 3/0/0 (HID no-boot)
+  bAlternateSetting: 0
+  bNumEndpoints publicado: 1; atributos/direcciones no publicados
+  servicio IOHIDDevice: PrimaryUsagePage 0x0001, PrimaryUsage 0x0080
+  colecciones de nivel superior del descriptor:
+    0001/0080, 000C/0001, FF02/0001, 0001/0006,
+    FF00/0001 (dos), FF02/0002, 0001/0002
+  ReportDescriptor: 304 bytes, SHA-256
+    776202fdfdf10d8104b2a668957a0583358758967114ba9766aa2ef5ab1be329
+  MaxInputReportSize publicado: 16 bytes
+  MaxOutputReportSize publicado: 1 byte
+  MaxFeatureReportSize publicado: 1032 bytes
+  Feature reports declarados (ID : payload / con byte ID):
+    5 : 5 / 6 bytes
+    6 : 1031 / 1032 bytes
+    9 : 519 / 520 bytes
+  Input reports declarados (ID : payload / con byte ID):
+    1 : 1 / 2 bytes
+    2 : 2 / 3 bytes
+    3 : 3 / 4 bytes
+    4 : 15 / 16 bytes
+    7 : 7 / 8 bytes
+    9 : 7 / 8 bytes
+
+  El análisis offline de items del descriptor sitúa feature ID 5 bajo la
+  primera colección FF00/0001, feature ID 6 bajo la segunda FF00/0001, e
+  input + feature ID 9 bajo FF02/0002. Son colecciones del mismo servicio HID
+  e interfaz USB 1. El filtro FF00/0001 del driver no implica que el report
+  TFT ID 9 pertenezca a esa colección; se debe contrastar la selección WebHID
+  con esta estructura antes de implementar transporte.
+
+El Web Driver actual declara para RK-S98 ES la colección FF00/0001 y utiliza
+feature report ID 9 con payload de 519 bytes para TFT. La interfaz 1 es por
+tanto una candidata fundamentada para esa ruta, pero la colección específica
+del ID 9 es FF02/0002 según el descriptor. No se ha observado una transacción
+TFT real ni comprobado el efecto de enviar nada.
+
+Los descriptores HID publicados se conservaron exactamente en:
+  hid-report-descriptors/interface-0.bin
+  hid-report-descriptors/interface-1.bin
+
+No se dispone de una captura completa de endpoints/configuración USB; las
+propiedades IORegistry no sustituyen una captura de bus. Tampoco se ha leído
+firmware, configuración persistente, imagen TFT, estado del menú o número de
+serie. Los tamaños son declarados por el descriptor y no validan semántica de
+comandos ni formato de transferencia real.

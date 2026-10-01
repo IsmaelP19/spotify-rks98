@@ -1,0 +1,25 @@
+# Referencias Royal Kludge para el RK-S98
+
+Consulta de fuentes públicas: 1 de octubre de 2026. Estos datos describen otros proyectos o ejemplares publicados; no identifican todavía el teclado físico de este proyecto. No se ha abierto ningún dispositivo ni enviado ningún report HID durante esta investigación.
+
+## Matriz de evidencia
+
+| Proyecto | Alcance comprobado en su propia documentación/código | Aplicación al S98 y a la TFT |
+| --- | --- | --- |
+| [Rangoli](https://github.com/rnayabed/rangoli) | Su autor indica que dedujo el protocolo a partir de un RK71RGB N; ofrece keymap y luces. La [lista de compatibilidad](https://github.com/rnayabed/rangoli/blob/master/keyboards-list.md) limita el soporte a VID `0x258a`, advierte que nombres parecidos pueden tener VID/PID distintos y no enumera S98. Hay [solicitudes abiertas de soporte S98](https://github.com/rnayabed/rangoli/issues/68). | Referencia útil para HID de **configuración** en ciertos RK. No demuestra soporte S98 ni protocolo TFT. |
+| [Royal Kludge Configurator](https://github.com/Ripwords/royal-kludge-configurator) | Su README describe Tauri/Nuxt/Rust, `hidapi`, detección, keymap y luces, y reconoce que reutiliza el trabajo de Rangoli. Advierte que puede no funcionar con todos los modelos. | La afirmación de detección genérica y soporte macOS no acredita que funcione en S98. El README no presenta función TFT ni validación S98. |
+| [Kludge Knight](https://github.com/vinc3m1/kludgeknight) | Remapeo y luces mediante WebHID. Su lista contiene varias entradas S98 de los archivos de configuración oficiales, pero el autor declara pruebas físicas sólo en F68 y S79. La propia documentación advierte que no puede leer el keymap existente y que escribir una tecla reenvía todo el mapa. | Una entrada S98 en el catálogo significa que existe una configuración de teclas para ese PID; **no** prueba funcionamiento en nuestro S98 ni soporte TFT. No usar para ensayos durante esta fase. |
+| [RKCU](https://github.com/oddlyspaced/rkcu) | Utilidad Python/hidapi para perfiles de iluminación RK61. Su README muestra un ejemplar `258a:004a` y reglas `udev` de Linux. | No declara S98, TFT ni método macOS; sólo analogía histórica de enumeración por VID/PID y separación entre interfaz HID y modelo comercial. |
+
+## Pistas concretas de selección HID
+
+- El [código de Kludge Knight](https://github.com/vinc3m1/kludgeknight/blob/main/src/models/HIDDeviceManager.ts) filtra `vendorId: 0x258a`, `usagePage: 0x0001` y `usage: 0x0080` para su interfaz de **configuración**. Son criterios de ese proyecto, no una identificación comprobada de la TFT del S98. Su implementación registra `collections` y busca configuración por PID.
+- Su [traductor de protocolo](https://github.com/vinc3m1/kludgeknight/blob/main/src/models/ProtocolTranslator.ts) envía feature reports para keymap y luces. El `reportId` `0x0a` y los nueve buffers de keymap pertenecen a ese camino de configuración. Reutilizarlos para la TFT sería una conjetura peligrosa.
+- Los identificadores publicados varían entre ejemplares S98: una [incidencia de Rangoli](https://github.com/rnayabed/rangoli/issues/68) informa `258a:0174`; una [solicitud S98 en OpenRGB](https://gitlab.com/CalcProgrammer1/OpenRGB/-/issues/5168) informa `258a:01af` e interfaces Windows `MI_00` y `MI_01&COL04`. El [catálogo de Kludge Knight](https://www.kludgeknight.com/) incluye, por ejemplo, S98 DE `0224` y S98 genérico `022f`. Son fuentes de usuarios/catálogos diferentes; no se debe equiparar ninguno de esos PID con el teclado conectado sin medirlo.
+- La [guía oficial de RK](https://rkgamingstore.com/blogs/community/how-to-upload-gifs-to-your-keyboard) sí muestra un S98 cargando GIF mediante el RK Web Driver en modo cableado y Chromium. Recomienda preparar un GIF cercano a `240 × 240`, pero en la misma guía habla de `240 × 135` para pantallas RK en general. Ninguna cifra demuestra resolución nativa, formato de transferencia ni persistencia del S98 concreto. La guía dice que la animación se escribe en el dispositivo al pulsar Save; por prudencia, tratar la persistencia y el desgaste de flash como riesgos aún sin cuantificar.
+
+## Conclusiones y siguiente observación segura
+
+**Confirmado en fuentes:** los proyectos comunitarios aportan rutas de configuración de teclas/luces; la guía oficial documenta carga de GIF por Web Driver para S98. **No confirmado:** interfaz exacta de la TFT, report IDs/comandos TFT, compatibilidad de cada proyecto con este ejemplar, resolución física, volatilidad de la imagen y estado legible de configuración.
+
+Antes de seleccionar una interfaz para cualquier comunicación futura, enumerar **todas** las colecciones e interfaces HID del S98 físico por USB, con VID/PID reales, usage page/usage, report descriptors e identidad de interfaz. Después, observar pasivamente qué colección abre el RK Web Driver para la pestaña TFT. La observación de `0x0001/0x0080` en Kludge Knight sólo ayuda a reconocer una posible interfaz de configuración y no debe convertirse en filtro único de descubrimiento.
