@@ -2,8 +2,6 @@
 
 Aplicación para **macOS** que muestra la pista actual de Spotify en la pantalla TFT de un Royal Kludge RK-S98. El firmware sigue siendo el original: el dial, los menús, el RGB, el volumen y el teclado continúan funcionando.
 
-The guide below is in Spanish. This project targets macOS and talks to the keyboard over wired USB.
-
 <p>
   <img src="docs/images/tft-playing.png" width="720" alt="Pantalla de 320 por 172 con carátula, título, artista y álbum">
 </p>
