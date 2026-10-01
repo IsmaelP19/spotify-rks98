@@ -27,7 +27,7 @@ La aplicación vive en la barra de menús, junto al volumen y la batería. El ic
 3. La envía a la pantalla del teclado cuando la pista cambia.
 4. Deja de hablar con la pantalla hasta el siguiente cambio.
 
-No hay barra de progreso de la canción, ni animación, ni un fotograma por segundo. Cada subida envía 215 bloques y tarda unos **45 segundos**. Mientras tanto, el menú muestra el porcentaje de esa subida, que es el avance del envío.
+No hay barra de progreso de la canción, ni animación, ni un fotograma por segundo. Cada subida envía 215 bloques. En esta unidad tardó unos **13 segundos**. Mientras tanto, el menú muestra el porcentaje de esa subida, que es el avance del envío.
 
 | Reproduciendo | Subiendo la imagen |
 | --- | --- |
